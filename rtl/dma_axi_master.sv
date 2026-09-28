@@ -247,6 +247,7 @@ module dma_axi_master
                 target_addr <= ch_araddr[grant_id];
                 target_len  <= 8'd7; // 8 beats
                 target_size <= 3'b010;
+                $display("[DEBUG MST] DESC_FETCH granted for CH%0d, target_addr=0x%08x (ch_araddr=0x%08x)", grant_id, ch_araddr[grant_id], ch_araddr[grant_id]);
               end
               2'b01: begin // DATA_READ
                 target_addr <= ch_araddr[grant_id];

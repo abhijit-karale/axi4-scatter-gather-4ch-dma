@@ -258,6 +258,7 @@ module dma_channel
         end
 
         CH_STATE_FETCH_REQ: begin
+          $display("[DEBUG CH%0d] FETCH_REQ: curr_desc_addr=0x%08x ch_araddr=0x%08x", CHANNEL_ID, curr_desc_addr, ch_araddr);
           if (arb_granted && (arb_grant_type == 2'b00)) begin
             state_next = CH_STATE_FETCH_WAIT;
           end
@@ -401,11 +402,17 @@ module dma_channel
           end
         end
 
+        CH_STATE_FETCH_WAIT: begin
+          if (desc_engine_done && desc_valid) begin
+            curr_src_addr   <= desc_src_addr;
+            curr_dst_addr   <= desc_dst_addr;
+            rem_read_bytes  <= desc_transfer_len;
+            rem_write_bytes <= desc_transfer_len;
+          end
+        end
+
         CH_STATE_PARSE_DESC: begin
-          curr_src_addr   <= desc_src_addr;
-          curr_dst_addr   <= desc_dst_addr;
-          rem_read_bytes  <= desc_transfer_len;
-          rem_write_bytes <= desc_transfer_len;
+          // Ready to transfer payload
         end
 
         CH_STATE_READ_REQ: begin

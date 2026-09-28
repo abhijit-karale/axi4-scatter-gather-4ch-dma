@@ -189,9 +189,10 @@ module dma_desc_engine
     end else begin
       state <= state_next;
 
-      if (state == ST_IDLE || (state == ST_READY && fetch_start)) begin
+      if (fetch_start) begin
         word_idx <= '0;
       end else if (state == ST_FETCHING && desc_rdata_valid) begin
+        $display("[DESC_WORD] time=%0t word_idx=%0d data=0x%08x last=%0b", $time, word_idx, desc_rdata, desc_rdata_last);
         word_idx <= word_idx + 1'b1;
         case (word_idx)
           3'd0: r_src_addr     <= desc_rdata;

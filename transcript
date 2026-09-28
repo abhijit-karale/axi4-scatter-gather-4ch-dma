@@ -1,5 +1,5 @@
 # vsim -c -nodpiexports -do "run -all; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
-# Start time: 08:06:45 on Sep 28,2026
+# Start time: 08:08:00 on Sep 28,2026
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
@@ -101,15 +101,37 @@
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002100 -> DST=0x00003100 (128 bytes, IOC=0)
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002200 -> DST=0x00003200 (64 bytes, IOC=1)
 # UVM_INFO tb/uvm/seq/dma_sg_seq.sv(86) @ 82500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Polling Channel 0 Status for completion...
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DESC_WORD] time=98000 word_idx=0 data=0x00002000 last=0
+# [DESC_WORD] time=103000 word_idx=1 data=0x00003000 last=0
+# [DESC_WORD] time=108000 word_idx=2 data=0x00001020 last=0
+# [DESC_WORD] time=113000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=118000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=123000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=128000 word_idx=6 data=0x00000000 last=0
 # [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=64
 # [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=64
+# [DESC_WORD] time=133000 word_idx=7 data=0x00000000 last=1
 # [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
 # [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DESC_WORD] time=158000 word_idx=0 data=0x00003000 last=0
+# [DESC_WORD] time=163000 word_idx=1 data=0x00001020 last=0
+# [DESC_WORD] time=168000 word_idx=2 data=0x00000040 last=0
+# [DESC_WORD] time=173000 word_idx=3 data=0x00000f59 last=0
+# [DESC_WORD] time=178000 word_idx=4 data=0x00000000 last=0
+# [DESC_WORD] time=183000 word_idx=5 data=0x00000000 last=0
 # [DEBUG DESC_ENG] Fetch finished: word_idx=6 rdata_last=1 ctrl=0x00000000 len=3929
+# [DESC_WORD] time=188000 word_idx=6 data=0x00000000 last=1
 # [DEBUG DESC_ENG] Validation failed: ctrl[0]=0 len=3929
 # [DEBUG DESC_ENG] Validation failed: ctrl[0]=0 len=3929
 # [DEBUG CH0] Entered ERROR: desc_error=1 bus_err=0
 # [DEBUG CH0] Entered ERROR: desc_error=1 bus_err=0
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
 # UVM_FATAL tb/uvm/seq/dma_base_seq.sv(49) @ 80062500: uvm_test_top.env.m_axil_agent.sequencer@@seq [POLL_TIMEOUT] Timeout polling register 0x044! Mask=0x00000002, Exp=0x00000002, Read=0x000000e4
 # UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 80062500: reporter [UVM/REPORT/SERVER] 
 # --- UVM Report Summary ---
@@ -133,5 +155,5 @@
 # 
 # ** Note: $finish    : C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(135)
 #    Time: 80062500 ps  Iteration: 2  Region: /uvm_pkg::uvm_sequence_base::start
-# End time: 08:06:46 on Sep 28,2026, Elapsed time: 0:00:01
+# End time: 08:08:02 on Sep 28,2026, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
