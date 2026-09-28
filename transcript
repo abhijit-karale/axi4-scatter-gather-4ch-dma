@@ -1,9 +1,149 @@
-# vsim -c -nodpiexports -do "run -all; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
-# Start time: 08:19:34 on Sep 28,2026
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Error (suppressible): rtl/dma_channel.sv(346): (vopt-7063) Failed to find 'CH_ID' in hierarchical name 'CH_ID'.
-#         Region: dma_tb_top.u_dut.gen_dma_channels[0].u_channel
-# Optimization failed
-# Error loading design
-# End time: 08:19:35 on Sep 28,2026, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 0
+# vsim -c -nodpiexports -do "run 2000ns; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
+# Start time: 08:21:30 on Sep 28,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 10.7c win64 Aug 18 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.axi_if(fast)
+# Loading work.axil_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.axi_vip_pkg(fast)
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading work.dma_pkg(fast)
+# Loading work.dma_uvm_pkg(fast)
+# Loading work.dma_tb_top(fast)
+# Loading work.dma_csr_axi_lite(fast)
+# Loading work.dma_arbiter(fast)
+# Loading work.dma_axi_master(fast)
+# run 2000ns
+# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(453) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+# UVM_INFO @ 0: reporter [RNTST] Running test dma_sg_test...
+# UVM_INFO tb/uvm/env/dma_env.sv(27) @ 0: uvm_test_top.env [CFG_DEFAULT] Using default environment configuration
+# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(579) @ 0: reporter [UVMTOP] UVM testbench topology:
+# ----------------------------------------------------------------
+# Name                         Type                    Size  Value
+# ----------------------------------------------------------------
+# uvm_test_top                 dma_sg_test             -     @348 
+#   env                        dma_env                 -     @361 
+#     m_axi_agent              axi_agent               -     @379 
+#       driver                 axi_driver              -     @446 
+#         rsp_port             uvm_analysis_port       -     @465 
+#         seq_item_port        uvm_seq_item_pull_port  -     @455 
+#       monitor                axi_monitor             -     @427 
+#         item_collected_port  uvm_analysis_port       -     @436 
+#       sequencer              axi_sequencer           -     @475 
+#         rsp_export           uvm_analysis_export     -     @484 
+#         seq_item_export      uvm_seq_item_pull_imp   -     @602 
+#         arbitration_queue    array                   0     -    
+#         lock_queue           array                   0     -    
+#         num_last_reqs        integral                32    'd1  
+#         num_last_rsps        integral                32    'd1  
+#     m_axil_agent             axil_agent              -     @388 
+#       driver                 axil_driver             -     @640 
+#         rsp_port             uvm_analysis_port       -     @659 
+#         seq_item_port        uvm_seq_item_pull_port  -     @649 
+#       monitor                axil_monitor            -     @621 
+#         item_collected_port  uvm_analysis_port       -     @630 
+#       sequencer              axil_sequencer          -     @669 
+#         rsp_export           uvm_analysis_export     -     @678 
+#         seq_item_export      uvm_seq_item_pull_imp   -     @796 
+#         arbitration_queue    array                   0     -    
+#         lock_queue           array                   0     -    
+#         num_last_reqs        integral                32    'd1  
+#         num_last_rsps        integral                32    'd1  
+#     m_scoreboard             dma_scoreboard          -     @397 
+#       axi_export             uvm_analysis_imp_axi    -     @406 
+#       axil_export            uvm_analysis_imp_axil   -     @416 
+# ----------------------------------------------------------------
+# 
+# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_traversal.svh(279) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+# UVM_INFO tb/uvm/tests/dma_sg_test.sv(20) @ 0: uvm_test_top [TEST] ==========================================================
+# UVM_INFO tb/uvm/tests/dma_sg_test.sv(21) @ 0: uvm_test_top [TEST]   STARTING: Scatter-Gather Linked-List DMA Test
+# UVM_INFO tb/uvm/tests/dma_sg_test.sv(22) @ 0: uvm_test_top [TEST] ==========================================================
+# UVM_INFO tb/uvm/seq/dma_sg_seq.sv(38) @ 0: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Starting Scatter-Gather Linked-List Descriptor Sequence
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002000 -> DST=0x00003000 (64 bytes, IOC=0)
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002100 -> DST=0x00003100 (128 bytes, IOC=0)
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002200 -> DST=0x00003200 (64 bytes, IOC=1)
+# [83000] [CH0_FSM] CH_STATE_IDLE -> CH_STATE_FETCH_REQ (rem_rd=0, rem_wr=0, chunk=0)
+# UVM_INFO tb/uvm/seq/dma_sg_seq.sv(86) @ 82500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Polling Channel 0 Status for completion...
+# [88000] [CH0_FSM] CH_STATE_FETCH_REQ -> CH_STATE_FETCH_WAIT (rem_rd=0, rem_wr=0, chunk=0)
+# [143000] [CH0_FSM] CH_STATE_FETCH_WAIT -> CH_STATE_PARSE_DESC (rem_rd=0, rem_wr=0, chunk=0)
+# [148000] [CH0_FSM] CH_STATE_PARSE_DESC -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [153000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [193000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [203000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [288000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [298000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [388000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [398000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [483000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [493000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [583000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [593000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [678000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [688000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [778000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [788000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [873000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [883000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [973000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [983000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1068000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1078000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1168000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1178000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1263000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1273000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1363000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1373000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1458000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1468000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1558000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1568000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1653000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1663000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1753000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1763000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1848000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1858000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [1948000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [1958000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+#  quit -f
+# End time: 08:21:31 on Sep 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
