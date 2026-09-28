@@ -86,6 +86,7 @@ class dma_priority_test extends dma_base_test;
 
     seq = dma_priority_seq::type_id::create("seq");
     seq.scb = env.m_scoreboard;
+    seq.ram = env.m_ram_model;
     seq.start(env.m_axil_agent.sequencer);
 
     #100ns;
