@@ -340,6 +340,13 @@ module dma_channel
     end
   end
 
+  always_ff @(posedge clk) begin
+    if (state != state_next) begin
+      $display("[%0t] [CH%0d_FSM] %s -> %s (rem_rd=%0d, rem_wr=%0d, chunk=%0d)",
+               $time, CHANNEL_ID, state.name(), state_next.name(), rem_read_bytes, rem_write_bytes, chunk_beats);
+    end
+  end
+
   // Sequential Datapath Updates
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
