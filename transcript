@@ -1,6 +1,6 @@
-# vsim -c -nodpiexports -do "run -all; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
-# Start time: 08:10:07 on Sep 28,2026
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# vsim -c -nodpiexports -do "run 200us; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
+# Start time: 08:11:25 on Sep 28,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
 # //
@@ -29,7 +29,7 @@
 # Loading work.dma_csr_axi_lite(fast)
 # Loading work.dma_arbiter(fast)
 # Loading work.dma_axi_master(fast)
-# run -all
+# run 200us
 # UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
 # ----------------------------------------------------------------
 # UVM-1.2
@@ -101,6 +101,103 @@
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002100 -> DST=0x00003100 (128 bytes, IOC=0)
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002200 -> DST=0x00003200 (64 bytes, IOC=1)
 # UVM_INFO tb/uvm/seq/dma_sg_seq.sv(86) @ 82500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Polling Channel 0 Status for completion...
+# [AXI_RD] addr=0x00002100 data=0xb3b2b1b0
+# [AXI_RD] addr=0x00002104 data=0xb7b6b5b4
+# [AXI_RD] addr=0x00002108 data=0xbbbab9b8
+# [AXI_RD] addr=0x0000210c data=0xbfbebdbc
+# [AXI_RD] addr=0x00002110 data=0xc3c2c1c0
+# [AXI_RD] addr=0x00002114 data=0xc7c6c5c4
+# [AXI_RD] addr=0x00002118 data=0xcbcac9c8
+# [AXI_RD] addr=0x0000211c data=0xcfcecdcc
+# [AXI_RD] addr=0x00002120 data=0xd3d2d1d0
+# [AXI_RD] addr=0x00002124 data=0xd7d6d5d4
+# [AXI_RD] addr=0x00002128 data=0xdbdad9d8
+# [AXI_RD] addr=0x0000212c data=0xdfdedddc
+# [AXI_RD] addr=0x00002130 data=0xe3e2e1e0
+# [AXI_RD] addr=0x00002134 data=0xe7e6e5e4
+# [AXI_RD] addr=0x00002138 data=0xebeae9e8
+# [AXI_RD] addr=0x0000213c data=0xefeeedec
+# [AXI_WR] addr=0x00003100 data=0xb3b2b1b0
+# [AXI_WR] addr=0x00003104 data=0xb7b6b5b4
+# [AXI_WR] addr=0x00003108 data=0xbbbab9b8
+# [AXI_WR] addr=0x0000310c data=0xbfbebdbc
+# [AXI_WR] addr=0x00003110 data=0xc3c2c1c0
+# [AXI_WR] addr=0x00003114 data=0xc7c6c5c4
+# [AXI_WR] addr=0x00003118 data=0xcbcac9c8
+# [AXI_WR] addr=0x0000311c data=0xcfcecdcc
+# [AXI_WR] addr=0x00003120 data=0xd3d2d1d0
+# [AXI_WR] addr=0x00003124 data=0xd7d6d5d4
+# [AXI_WR] addr=0x00003128 data=0xdbdad9d8
+# [AXI_WR] addr=0x0000312c data=0xdfdedddc
+# [AXI_WR] addr=0x00003130 data=0xe3e2e1e0
+# [AXI_WR] addr=0x00003134 data=0xe7e6e5e4
+# [AXI_WR] addr=0x00003138 data=0xebeae9e8
+# [AXI_WR] addr=0x0000313c data=0xefeeedec
+# [AXI_WR] addr=0x00003140 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003144 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003148 data=0xxxxxxxxx
+# [AXI_WR] addr=0x0000314c data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003150 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003154 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003158 data=0xxxxxxxxx
+# [AXI_WR] addr=0x0000315c data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003160 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003164 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003168 data=0xxxxxxxxx
+# [AXI_WR] addr=0x0000316c data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003170 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003174 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003178 data=0xxxxxxxxx
+# [AXI_RD] addr=0x00002140 data=0xf3f2f1f0
+# [AXI_RD] addr=0x00002144 data=0xf7f6f5f4
+# [AXI_RD] addr=0x00002148 data=0xfbfaf9f8
+# [AXI_RD] addr=0x0000214c data=0xfffefdfc
+# [AXI_RD] addr=0x00002150 data=0x03020100
+# [AXI_RD] addr=0x00002154 data=0x07060504
+# [AXI_RD] addr=0x00002158 data=0x0b0a0908
+# [AXI_RD] addr=0x0000215c data=0x0f0e0d0c
+# [AXI_RD] addr=0x00002160 data=0x13121110
+# [AXI_RD] addr=0x00002164 data=0x17161514
+# [AXI_RD] addr=0x00002168 data=0x1b1a1918
+# [AXI_RD] addr=0x0000216c data=0x1f1e1d1c
+# [AXI_RD] addr=0x00002170 data=0x23222120
+# [AXI_RD] addr=0x00002174 data=0x27262524
+# [AXI_RD] addr=0x00002178 data=0x2b2a2928
+# [AXI_RD] addr=0x0000217c data=0x2f2e2d2c
+# [AXI_WR] addr=0x0000313c data=0xf3f2f1f0
+# [AXI_WR] addr=0x00003140 data=0xf7f6f5f4
+# [AXI_WR] addr=0x00003144 data=0xfbfaf9f8
+# [AXI_WR] addr=0x00003148 data=0xfffefdfc
+# [AXI_WR] addr=0x0000314c data=0x03020100
+# [AXI_WR] addr=0x00003150 data=0x07060504
+# [AXI_WR] addr=0x00003154 data=0x0b0a0908
+# [AXI_WR] addr=0x00003158 data=0x0f0e0d0c
+# [AXI_WR] addr=0x0000315c data=0x13121110
+# [AXI_WR] addr=0x00003160 data=0x17161514
+# [AXI_WR] addr=0x00003164 data=0x1b1a1918
+# [AXI_WR] addr=0x00003168 data=0x1f1e1d1c
+# [AXI_WR] addr=0x0000316c data=0x23222120
+# [AXI_WR] addr=0x00003170 data=0x27262524
+# [AXI_WR] addr=0x00003174 data=0x2b2a2928
+# [AXI_WR] addr=0x00003178 data=0x2f2e2d2c
+# [AXI_WR] addr=0x0000317c data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003180 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003184 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003188 data=0xxxxxxxxx
+# [AXI_WR] addr=0x0000318c data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003190 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003194 data=0xxxxxxxxx
+# [AXI_WR] addr=0x00003198 data=0xxxxxxxxx
+# [AXI_WR] addr=0x0000319c data=0xxxxxxxxx
+# [AXI_WR] addr=0x000031a0 data=0xxxxxxxxx
+# [AXI_WR] addr=0x000031a4 data=0xxxxxxxxx
+# [AXI_WR] addr=0x000031a8 data=0xxxxxxxxx
+# [AXI_WR] addr=0x000031ac data=0xxxxxxxxx
+# [AXI_WR] addr=0x000031b0 data=0xxxxxxxxx
+# [AXI_WR] addr=0x000031b4 data=0xxxxxxxxx
+# [AXI_WR] addr=0x000031b8 data=0xxxxxxxxx
+# [AXI_RD] addr=0x00002180 data=0x00000000
+# [AXI_WR] addr=0x0000317c data=0x00000000
 # UVM_INFO tb/uvm/seq/dma_sg_seq.sv(89) @ 1542500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Channel 0 completed linked-list scatter-gather transfer successfully!
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(83) @ 1542500: uvm_test_top.env.m_scoreboard [SCB_MATCH] PASS: End-to-end memory match for CH0: SRC[0x00002000] == DST[0x00003000] (64 bytes)
 # UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 60: SRC[0x0000213c]=0xec != DST[0x0000313c]=0xf0
@@ -212,5 +309,5 @@
 # 
 # ** Note: $finish    : C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
 #    Time: 1642500 ps  Iteration: 68  Instance: /dma_tb_top
-# End time: 08:10:08 on Sep 28,2026, Elapsed time: 0:00:01
+# End time: 08:11:26 on Sep 28,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
