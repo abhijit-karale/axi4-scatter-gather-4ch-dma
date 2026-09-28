@@ -27,8 +27,10 @@ class dma_priority_seq extends dma_base_seq;
 
     `uvm_info("PRIO_SEQ", "Starting Fixed Priority Arbitration Test (CH0 vs CH3)", UVM_LOW)
 
-    if (!uvm_config_db#(axi_ram_model)::get(null, "*", "axi_ram", ram)) begin
-      `uvm_fatal("NORAM", "Could not get axi_ram_model in priority sequence")
+    if (ram == null) begin
+      if (!uvm_config_db#(axi_ram_model)::get(null, "*", "axi_ram", ram)) begin
+        `uvm_fatal("NORAM", "Could not get axi_ram_model in priority sequence")
+      end
     end
 
     // Populate buffers
