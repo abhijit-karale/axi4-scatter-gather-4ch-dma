@@ -19,5 +19,6 @@ Act as a Principal SoC Architect and Verification Specialist. Generate a complet
 3. Formal Verification (`tb/formal/`): SVA proofs guaranteeing zero descriptor drop, AXI burst address continuity, and interrupt assertion accuracy.
 4. Layered UVM 1.2 Suite (`tb/uvm/`): Complete AXI VIP, scatter-gather descriptor randomization sequences, and end-to-end memory comparison scoreboard.
 5. Cycle-Accurate Waveform Guide: ASCII diagram detailing descriptor fetch, channel handover, and AXI burst streaming.
+
 6. Synthesis Setup (`syn/`): 200 MHz SDC timing constraints and synthesis automation script.
 7. Repo Blueprint: File layout, complete `Makefile`, and production `README.md`.

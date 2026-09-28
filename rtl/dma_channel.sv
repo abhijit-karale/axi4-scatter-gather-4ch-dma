@@ -435,6 +435,8 @@ module dma_channel
         end
 
         default: ;
+      endcase
+    end
   end
 
 endmodule
