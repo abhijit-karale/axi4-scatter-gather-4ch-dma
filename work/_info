@@ -11,7 +11,7 @@ Z0 dC:/Users/abhij/Downloads/SOC/Multi Channel Scatter Gather DMA Subsystem
 vdma_arbiter
 Z1 DXx6 sv_std 3 std 0 22 d=_JfHTnXCN[H5FjiaJJc0
 Z2 DXx4 work 7 dma_pkg 0 22 d_Z9CFn3Yg0cf5k@`ThOD2
-Z3 !s110 1790562202
+Z3 !s110 1790562237
 !i10b 1
 !s100 AnJlQ:LIgml=km544^VQF1
 IdL13a2MC^IhJogkQCYn@n0
@@ -27,9 +27,9 @@ Z6 OL;L;10.7c;67
 r1
 !s85 0
 31
-Z7 !s108 1790562202.000000
-!s107 rtl\dma_subsystem_top.sv|rtl\dma_csr_axi_lite.sv|rtl\dma_channel.sv|rtl\dma_axi_master.sv|rtl\dma_desc_engine.sv|rtl\dma_arbiter.sv|rtl\dma_fifo.sv|rtl\dma_pkg.sv|
-Z8 !s90 -sv|rtl\dma_pkg.sv|rtl\dma_fifo.sv|rtl\dma_arbiter.sv|rtl\dma_desc_engine.sv|rtl\dma_axi_master.sv|rtl\dma_channel.sv|rtl\dma_csr_axi_lite.sv|rtl\dma_subsystem_top.sv|
+Z7 !s108 1790562237.000000
+!s107 tb\formal\dma_formal_bind.sv|tb\formal\dma_sva_props.sv|rtl\dma_subsystem_top.sv|rtl\dma_csr_axi_lite.sv|rtl\dma_channel.sv|rtl\dma_axi_master.sv|rtl\dma_desc_engine.sv|rtl\dma_arbiter.sv|rtl\dma_fifo.sv|rtl\dma_pkg.sv|
+Z8 !s90 -sv|rtl\dma_pkg.sv|rtl\dma_fifo.sv|rtl\dma_arbiter.sv|rtl\dma_desc_engine.sv|rtl\dma_axi_master.sv|rtl\dma_channel.sv|rtl\dma_csr_axi_lite.sv|rtl\dma_subsystem_top.sv|tb\formal\dma_sva_props.sv|tb\formal\dma_formal_bind.sv|
 !i113 0
 Z9 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Z10 tCvgOpt 0
@@ -53,7 +53,7 @@ r1
 !s85 0
 31
 R7
-Z11 !s107 rtl\dma_subsystem_top.sv|rtl\dma_csr_axi_lite.sv|rtl\dma_channel.sv|rtl\dma_axi_master.sv|rtl\dma_desc_engine.sv|rtl\dma_arbiter.sv|rtl\dma_fifo.sv|rtl\dma_pkg.sv|
+Z11 !s107 tb\formal\dma_formal_bind.sv|tb\formal\dma_sva_props.sv|rtl\dma_subsystem_top.sv|rtl\dma_csr_axi_lite.sv|rtl\dma_channel.sv|rtl\dma_axi_master.sv|rtl\dma_desc_engine.sv|rtl\dma_arbiter.sv|rtl\dma_fifo.sv|rtl\dma_pkg.sv|
 R8
 !i113 0
 R9
@@ -122,7 +122,7 @@ R0
 w1790562012
 8rtl\dma_desc_engine.sv
 Frtl\dma_desc_engine.sv
-L0 13
+Z12 L0 13
 R6
 r1
 !s85 0
@@ -147,6 +147,30 @@ w1790561983
 8rtl\dma_fifo.sv
 Frtl\dma_fifo.sv
 R5
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vdma_formal_bind
+R1
+R3
+!i10b 1
+!s100 k?jBM]0ASD0jBL1AGA^W_1
+IdY_UMR^Uif@]L4dObz>@^0
+R4
+!s105 dma_formal_bind_sv_unit
+S1
+R0
+w1790562220
+8tb\formal\dma_formal_bind.sv
+Ftb\formal\dma_formal_bind.sv
+L0 11
 R6
 r1
 !s85 0
@@ -195,6 +219,31 @@ w1790562152
 8rtl\dma_subsystem_top.sv
 Frtl\dma_subsystem_top.sv
 R5
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vdma_sva_props
+R1
+R2
+R3
+!i10b 1
+!s100 498=zh1`m7la93Gigk]SL2
+I2e0dP@2l7YRajGc?B2B4^2
+R4
+!s105 dma_sva_props_sv_unit
+S1
+R0
+w1790562213
+8tb\formal\dma_sva_props.sv
+Ftb\formal\dma_sva_props.sv
+R12
 R6
 r1
 !s85 0
