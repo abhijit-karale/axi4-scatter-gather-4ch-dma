@@ -129,8 +129,10 @@ module dma_desc_engine
 
       ST_FETCHING: begin
         if (desc_bus_err) begin
+          $display("[DEBUG DESC_ENG] Bus error during fetch!");
           state_next = ST_ERROR;
         end else if (desc_rdata_valid && (word_idx == 3'd7 || desc_rdata_last)) begin
+          $display("[DEBUG DESC_ENG] Fetch finished: word_idx=%0d rdata_last=%0b ctrl=0x%08x len=%0d", word_idx, desc_rdata_last, r_ctrl_word, r_transfer_len);
           state_next = ST_VALIDATE;
         end
       end
@@ -140,6 +142,7 @@ module dma_desc_engine
         if (r_ctrl_word[0] && (r_transfer_len > 0)) begin
           state_next = ST_READY;
         end else begin
+          $display("[DEBUG DESC_ENG] Validation failed: ctrl[0]=%0b len=%0d", r_ctrl_word[0], r_transfer_len);
           state_next = ST_ERROR;
         end
       end

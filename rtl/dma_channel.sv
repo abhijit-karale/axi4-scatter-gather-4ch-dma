@@ -265,8 +265,10 @@ module dma_channel
 
         CH_STATE_FETCH_WAIT: begin
           if (desc_error || bus_err) begin
+            $display("[DEBUG CH%0d] Entered ERROR: desc_error=%0b bus_err=%0b", CHANNEL_ID, desc_error, bus_err);
             state_next = CH_STATE_ERROR;
           end else if (desc_engine_done && desc_valid) begin
+            $display("[DEBUG CH%0d] Desc parsed: src=0x%08x dst=0x%08x len=%0d", CHANNEL_ID, desc_src_addr, desc_dst_addr, desc_transfer_len);
             state_next = CH_STATE_PARSE_DESC;
           end
         end
