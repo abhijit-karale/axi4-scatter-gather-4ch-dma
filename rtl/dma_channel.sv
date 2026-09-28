@@ -196,39 +196,34 @@ module dma_channel
   );
 
   // Calculate burst length for upcoming operations
+  logic [31:0] rem_read_words;
+  logic [31:0] rem_write_words;
+  assign rem_read_words  = (rem_read_bytes + BYTES_PER_BEAT - 1) >> SIZE_SHIFT;
+  assign rem_write_words = (rem_write_bytes + BYTES_PER_BEAT - 1) >> SIZE_SHIFT;
+
   always_comb begin
-    // Words remaining to read
-    logic [31:0] rem_read_words;
-    logic [31:0] rem_write_words;
-    rem_read_words  = (rem_read_bytes + BYTES_PER_BEAT - 1) >> SIZE_SHIFT;
-    rem_write_words = (rem_write_bytes + BYTES_PER_BEAT - 1) >> SIZE_SHIFT;
+    logic [31:0] max_rd_beats;
+    max_rd_beats = rem_read_words;
+    if (max_rd_beats > MAX_BURST)  max_rd_beats = MAX_BURST;
+    if (max_rd_beats > fifo_avail) max_rd_beats = fifo_avail;
+    if (max_rd_beats > 0) calc_read_len = 8'(max_rd_beats - 1);
+    else calc_read_len = '0;
 
-    // Read burst length calculation
-    if (rem_read_words > MAX_BURST) begin
-      calc_read_len = 8'(MAX_BURST - 1);
-    end else if (rem_read_words > 0) begin
-      calc_read_len = 8'(rem_read_words - 1);
-    end else begin
-      calc_read_len = '0;
-    end
-
-    // Write burst length calculation
-    if (rem_write_words > MAX_BURST) begin
-      calc_write_len = 8'(MAX_BURST - 1);
-    end else if (rem_write_words > 0) begin
-      calc_write_len = 8'(rem_write_words - 1);
-    end else begin
-      calc_write_len = '0;
-    end
+    logic [31:0] max_wr_beats;
+    max_wr_beats = rem_write_words;
+    if (max_wr_beats > MAX_BURST)  max_wr_beats = MAX_BURST;
+    if (max_wr_beats > fifo_level) max_wr_beats = fifo_level;
+    if (max_wr_beats > 0) calc_write_len = 8'(max_wr_beats - 1);
+    else calc_write_len = '0;
   end
 
   // AXI Master Request Parameters
   assign ch_araddr = (state == CH_STATE_FETCH_REQ || state == CH_STATE_FETCH_WAIT) ? curr_desc_addr : curr_src_addr;
-  assign ch_arlen  = (state == CH_STATE_FETCH_REQ || state == CH_STATE_FETCH_WAIT) ? 8'd7 : active_rd_len;
+  assign ch_arlen  = (state == CH_STATE_FETCH_REQ || state == CH_STATE_FETCH_WAIT) ? 8'd7 : calc_read_len;
   assign ch_arsize = 3'b010; // 4 bytes
 
   assign ch_awaddr = curr_dst_addr;
-  assign ch_awlen  = active_wr_len;
+  assign ch_awlen  = calc_write_len;
   assign ch_awsize = 3'b010; // 4 bytes
 
   // Arbiter Request Generation
@@ -273,12 +268,14 @@ module dma_channel
 
         CH_STATE_PARSE_DESC: begin
           // Ready to begin data transfer
-          if (rem_read_bytes > 0 && fifo_avail >= (calc_read_len + 1)) begin
+          if (rem_read_bytes > 0 && fifo_avail >= 16) begin
             state_next = CH_STATE_READ_REQ;
           end else if (fifo_level > 0) begin
             state_next = CH_STATE_WRITE_REQ;
           end else if (rem_write_bytes == 0) begin
             state_next = CH_STATE_NEXT_DESC;
+          end else begin
+            state_next = CH_STATE_READ_REQ;
           end
         end
 
@@ -293,12 +290,14 @@ module dma_channel
             state_next = CH_STATE_ERROR;
           end else if (burst_complete) begin
             // Decide next action: write if FIFO has enough data or read complete
-            if (fifo_level >= (calc_write_len + 1) || (rem_read_bytes == 0 && fifo_level > 0)) begin
+            if (fifo_level >= 16 || (rem_read_bytes == 0 && fifo_level > 0)) begin
               state_next = CH_STATE_WRITE_REQ;
-            end else if (rem_read_bytes > 0 && fifo_avail >= (calc_read_len + 1)) begin
+            end else if (rem_read_bytes > 0 && fifo_avail >= 16) begin
               state_next = CH_STATE_READ_REQ;
-            end else begin
+            end else if (fifo_level > 0) begin
               state_next = CH_STATE_WRITE_REQ;
+            end else begin
+              state_next = CH_STATE_READ_REQ;
             end
           end
         end
@@ -321,10 +320,10 @@ module dma_channel
               end else begin
                 state_next    = CH_STATE_NEXT_DESC;
               end
-            end else if (rem_read_bytes > 0 && fifo_avail >= (calc_read_len + 1)) begin
-              state_next = CH_STATE_READ_REQ;
-            end else if (fifo_level > 0) begin
+            end else if (fifo_level >= 16 || (rem_read_bytes == 0 && fifo_level > 0)) begin
               state_next = CH_STATE_WRITE_REQ;
+            end else if (rem_read_bytes > 0 && fifo_avail >= 16) begin
+              state_next = CH_STATE_READ_REQ;
             end else begin
               state_next = CH_STATE_READ_REQ;
             end
