@@ -37,9 +37,11 @@ class dma_sg_seq extends dma_base_seq;
 
     `uvm_info("SG_SEQ", "Starting Scatter-Gather Linked-List Descriptor Sequence", UVM_LOW)
 
-    // Retrieve RAM model & Scoreboard handles
-    if (!uvm_config_db#(axi_ram_model)::get(null, "*", "axi_ram", ram)) begin
-      `uvm_fatal("NORAM", "Could not get axi_ram_model handle in sequence")
+    // Retrieve RAM model & Scoreboard handles if not already assigned
+    if (ram == null) begin
+      if (!uvm_config_db#(axi_ram_model)::get(null, "*", "axi_ram", ram)) begin
+        `uvm_fatal("NORAM", "Could not get axi_ram_model handle in sequence")
+      end
     end
 
     // Populate Source Buffers in RAM

@@ -25,8 +25,10 @@ class dma_multichannel_seq extends dma_base_seq;
 
     `uvm_info("MC_SEQ", "Starting Multi-Channel Concurrent Transfer Sequence (4 Channels)", UVM_LOW)
 
-    if (!uvm_config_db#(axi_ram_model)::get(null, "*", "axi_ram", ram)) begin
-      `uvm_fatal("NORAM", "Could not get axi_ram_model in multichannel sequence")
+    if (ram == null) begin
+      if (!uvm_config_db#(axi_ram_model)::get(null, "*", "axi_ram", ram)) begin
+        `uvm_fatal("NORAM", "Could not get axi_ram_model in multichannel sequence")
+      end
     end
 
     // Configure addresses for each channel
