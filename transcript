@@ -1,5 +1,5 @@
 # vsim -c -nodpiexports -do "run -all; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
-# Start time: 08:08:00 on Sep 28,2026
+# Start time: 08:08:24 on Sep 28,2026
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
@@ -119,41 +119,362 @@
 # [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
 # [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
 # [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
-# [DESC_WORD] time=158000 word_idx=0 data=0x00003000 last=0
-# [DESC_WORD] time=163000 word_idx=1 data=0x00001020 last=0
-# [DESC_WORD] time=168000 word_idx=2 data=0x00000040 last=0
-# [DESC_WORD] time=173000 word_idx=3 data=0x00000f59 last=0
-# [DESC_WORD] time=178000 word_idx=4 data=0x00000000 last=0
-# [DESC_WORD] time=183000 word_idx=5 data=0x00000000 last=0
-# [DEBUG DESC_ENG] Fetch finished: word_idx=6 rdata_last=1 ctrl=0x00000000 len=3929
-# [DESC_WORD] time=188000 word_idx=6 data=0x00000000 last=1
-# [DEBUG DESC_ENG] Validation failed: ctrl[0]=0 len=3929
-# [DEBUG DESC_ENG] Validation failed: ctrl[0]=0 len=3929
-# [DEBUG CH0] Entered ERROR: desc_error=1 bus_err=0
-# [DEBUG CH0] Entered ERROR: desc_error=1 bus_err=0
 # [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
-# UVM_FATAL tb/uvm/seq/dma_base_seq.sv(49) @ 80062500: uvm_test_top.env.m_axil_agent.sequencer@@seq [POLL_TIMEOUT] Timeout polling register 0x044! Mask=0x00000002, Exp=0x00000002, Read=0x000000e4
-# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 80062500: reporter [UVM/REPORT/SERVER] 
+# [DESC_WORD] time=433000 word_idx=0 data=0x00002100 last=0
+# [DESC_WORD] time=438000 word_idx=1 data=0x00003100 last=0
+# [DESC_WORD] time=443000 word_idx=2 data=0x00001040 last=0
+# [DESC_WORD] time=448000 word_idx=3 data=0x00000080 last=0
+# [DESC_WORD] time=453000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=458000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=463000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=128
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=128
+# [DESC_WORD] time=468000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# [DESC_WORD] time=1178000 word_idx=0 data=0x00002200 last=0
+# [DESC_WORD] time=1183000 word_idx=1 data=0x00003200 last=0
+# [DESC_WORD] time=1188000 word_idx=2 data=0x00000000 last=0
+# [DESC_WORD] time=1193000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=1198000 word_idx=4 data=0x00000f5f last=0
+# [DESC_WORD] time=1203000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=1208000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f5f len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f5f len=64
+# [DESC_WORD] time=1213000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DESC_WORD] time=1523000 word_idx=0 data=0x00002000 last=0
+# [DESC_WORD] time=1528000 word_idx=1 data=0x00003000 last=0
+# [DESC_WORD] time=1533000 word_idx=2 data=0x00001020 last=0
+# [DESC_WORD] time=1538000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=1543000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=1548000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=1553000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=64
+# [DESC_WORD] time=1558000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
+# [DESC_WORD] time=1928000 word_idx=0 data=0x00002100 last=0
+# [DESC_WORD] time=1933000 word_idx=1 data=0x00003100 last=0
+# [DESC_WORD] time=1938000 word_idx=2 data=0x00001040 last=0
+# [DESC_WORD] time=1943000 word_idx=3 data=0x00000080 last=0
+# [DESC_WORD] time=1948000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=1953000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=1958000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=128
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=128
+# [DESC_WORD] time=1963000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# [DESC_WORD] time=2673000 word_idx=0 data=0x00002200 last=0
+# [DESC_WORD] time=2678000 word_idx=1 data=0x00003200 last=0
+# [DESC_WORD] time=2683000 word_idx=2 data=0x00000000 last=0
+# [DESC_WORD] time=2688000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=2693000 word_idx=4 data=0x00000f5f last=0
+# [DESC_WORD] time=2698000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=2703000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f5f len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f5f len=64
+# [DESC_WORD] time=2708000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DESC_WORD] time=3088000 word_idx=0 data=0x00002000 last=0
+# [DESC_WORD] time=3093000 word_idx=1 data=0x00003000 last=0
+# [DESC_WORD] time=3098000 word_idx=2 data=0x00001020 last=0
+# [DESC_WORD] time=3103000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=3108000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=3113000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=3118000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=64
+# [DESC_WORD] time=3123000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
+# [DESC_WORD] time=3423000 word_idx=0 data=0x00002100 last=0
+# [DESC_WORD] time=3428000 word_idx=1 data=0x00003100 last=0
+# [DESC_WORD] time=3433000 word_idx=2 data=0x00001040 last=0
+# [DESC_WORD] time=3438000 word_idx=3 data=0x00000080 last=0
+# [DESC_WORD] time=3443000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=3448000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=3453000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=128
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=128
+# [DESC_WORD] time=3458000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# [DESC_WORD] time=4168000 word_idx=0 data=0x00002200 last=0
+# [DESC_WORD] time=4173000 word_idx=1 data=0x00003200 last=0
+# [DESC_WORD] time=4178000 word_idx=2 data=0x00000000 last=0
+# [DESC_WORD] time=4183000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=4188000 word_idx=4 data=0x00000f5f last=0
+# [DESC_WORD] time=4193000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=4198000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f5f len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f5f len=64
+# [DESC_WORD] time=4203000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DESC_WORD] time=4513000 word_idx=0 data=0x00002000 last=0
+# [DESC_WORD] time=4518000 word_idx=1 data=0x00003000 last=0
+# [DESC_WORD] time=4523000 word_idx=2 data=0x00001020 last=0
+# [DESC_WORD] time=4528000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=4533000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=4538000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=4543000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=64
+# [DESC_WORD] time=4548000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001020 ch_araddr=0x00001020
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
+# [DESC_WORD] time=4918000 word_idx=0 data=0x00002100 last=0
+# [DESC_WORD] time=4923000 word_idx=1 data=0x00003100 last=0
+# [DESC_WORD] time=4928000 word_idx=2 data=0x00001040 last=0
+# [DESC_WORD] time=4933000 word_idx=3 data=0x00000080 last=0
+# [DESC_WORD] time=4938000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=4943000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=4948000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=128
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=128
+# [DESC_WORD] time=4953000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG CH0] Desc parsed: src=0x00002100 dst=0x00003100 len=128
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001020 (ch_araddr=0x00001020)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001040 ch_araddr=0x00001040
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# [DESC_WORD] time=5663000 word_idx=0 data=0x00002200 last=0
+# [DESC_WORD] time=5668000 word_idx=1 data=0x00003200 last=0
+# [DESC_WORD] time=5673000 word_idx=2 data=0x00000000 last=0
+# [DESC_WORD] time=5678000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=5683000 word_idx=4 data=0x00000f5f last=0
+# [DESC_WORD] time=5688000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=5693000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f5f len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f5f len=64
+# [DESC_WORD] time=5698000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002200 dst=0x00003200 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001040 (ch_araddr=0x00001040)
+# UVM_INFO tb/uvm/seq/dma_sg_seq.sv(89) @ 6062500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Channel 0 completed linked-list scatter-gather transfer successfully!
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(83) @ 6062500: uvm_test_top.env.m_scoreboard [SCB_MATCH] PASS: End-to-end memory match for CH0: SRC[0x00002000] == DST[0x00003000] (64 bytes)
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 4: SRC[0x00002104]=0xb4 != DST[0x00003104]=0xf0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 5: SRC[0x00002105]=0xb5 != DST[0x00003105]=0xf1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 6: SRC[0x00002106]=0xb6 != DST[0x00003106]=0xf2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 7: SRC[0x00002107]=0xb7 != DST[0x00003107]=0xf3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 8: SRC[0x00002108]=0xb8 != DST[0x00003108]=0xf4
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 9: SRC[0x00002109]=0xb9 != DST[0x00003109]=0xf5
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 10: SRC[0x0000210a]=0xba != DST[0x0000310a]=0xf6
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 11: SRC[0x0000210b]=0xbb != DST[0x0000310b]=0xf7
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 12: SRC[0x0000210c]=0xbc != DST[0x0000310c]=0xf8
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 13: SRC[0x0000210d]=0xbd != DST[0x0000310d]=0xf9
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 14: SRC[0x0000210e]=0xbe != DST[0x0000310e]=0xfa
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 15: SRC[0x0000210f]=0xbf != DST[0x0000310f]=0xfb
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 16: SRC[0x00002110]=0xc0 != DST[0x00003110]=0xfc
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 17: SRC[0x00002111]=0xc1 != DST[0x00003111]=0xfd
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 18: SRC[0x00002112]=0xc2 != DST[0x00003112]=0xfe
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 19: SRC[0x00002113]=0xc3 != DST[0x00003113]=0xff
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 20: SRC[0x00002114]=0xc4 != DST[0x00003114]=0x00
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 21: SRC[0x00002115]=0xc5 != DST[0x00003115]=0x01
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 22: SRC[0x00002116]=0xc6 != DST[0x00003116]=0x02
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 23: SRC[0x00002117]=0xc7 != DST[0x00003117]=0x03
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 24: SRC[0x00002118]=0xc8 != DST[0x00003118]=0x04
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 25: SRC[0x00002119]=0xc9 != DST[0x00003119]=0x05
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 26: SRC[0x0000211a]=0xca != DST[0x0000311a]=0x06
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 27: SRC[0x0000211b]=0xcb != DST[0x0000311b]=0x07
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 28: SRC[0x0000211c]=0xcc != DST[0x0000311c]=0x08
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 29: SRC[0x0000211d]=0xcd != DST[0x0000311d]=0x09
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 30: SRC[0x0000211e]=0xce != DST[0x0000311e]=0x0a
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 31: SRC[0x0000211f]=0xcf != DST[0x0000311f]=0x0b
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 32: SRC[0x00002120]=0xd0 != DST[0x00003120]=0x0c
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 33: SRC[0x00002121]=0xd1 != DST[0x00003121]=0x0d
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 34: SRC[0x00002122]=0xd2 != DST[0x00003122]=0x0e
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 35: SRC[0x00002123]=0xd3 != DST[0x00003123]=0x0f
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 36: SRC[0x00002124]=0xd4 != DST[0x00003124]=0x10
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 37: SRC[0x00002125]=0xd5 != DST[0x00003125]=0x11
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 38: SRC[0x00002126]=0xd6 != DST[0x00003126]=0x12
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 39: SRC[0x00002127]=0xd7 != DST[0x00003127]=0x13
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 40: SRC[0x00002128]=0xd8 != DST[0x00003128]=0x14
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 41: SRC[0x00002129]=0xd9 != DST[0x00003129]=0x15
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 42: SRC[0x0000212a]=0xda != DST[0x0000312a]=0x16
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 43: SRC[0x0000212b]=0xdb != DST[0x0000312b]=0x17
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 44: SRC[0x0000212c]=0xdc != DST[0x0000312c]=0x18
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 45: SRC[0x0000212d]=0xdd != DST[0x0000312d]=0x19
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 46: SRC[0x0000212e]=0xde != DST[0x0000312e]=0x1a
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 47: SRC[0x0000212f]=0xdf != DST[0x0000312f]=0x1b
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 48: SRC[0x00002130]=0xe0 != DST[0x00003130]=0x1c
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 49: SRC[0x00002131]=0xe1 != DST[0x00003131]=0x1d
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 50: SRC[0x00002132]=0xe2 != DST[0x00003132]=0x1e
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 51: SRC[0x00002133]=0xe3 != DST[0x00003133]=0x1f
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 52: SRC[0x00002134]=0xe4 != DST[0x00003134]=0x20
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 53: SRC[0x00002135]=0xe5 != DST[0x00003135]=0x21
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 54: SRC[0x00002136]=0xe6 != DST[0x00003136]=0x22
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 55: SRC[0x00002137]=0xe7 != DST[0x00003137]=0x23
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 56: SRC[0x00002138]=0xe8 != DST[0x00003138]=0x24
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 57: SRC[0x00002139]=0xe9 != DST[0x00003139]=0x25
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 58: SRC[0x0000213a]=0xea != DST[0x0000313a]=0x26
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 59: SRC[0x0000213b]=0xeb != DST[0x0000313b]=0x27
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 60: SRC[0x0000213c]=0xec != DST[0x0000313c]=0x28
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 61: SRC[0x0000213d]=0xed != DST[0x0000313d]=0x29
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 62: SRC[0x0000213e]=0xee != DST[0x0000313e]=0x2a
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 63: SRC[0x0000213f]=0xef != DST[0x0000313f]=0x2b
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 64: SRC[0x00002140]=0xf0 != DST[0x00003140]=0x2c
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 65: SRC[0x00002141]=0xf1 != DST[0x00003141]=0x2d
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 66: SRC[0x00002142]=0xf2 != DST[0x00003142]=0x2e
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 67: SRC[0x00002143]=0xf3 != DST[0x00003143]=0x2f
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 68: SRC[0x00002144]=0xf4 != DST[0x00003144]=0x00
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 69: SRC[0x00002145]=0xf5 != DST[0x00003145]=0x00
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 70: SRC[0x00002146]=0xf6 != DST[0x00003146]=0x00
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 71: SRC[0x00002147]=0xf7 != DST[0x00003147]=0x00
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 72: SRC[0x00002148]=0xf8 != DST[0x00003148]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 73: SRC[0x00002149]=0xf9 != DST[0x00003149]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 74: SRC[0x0000214a]=0xfa != DST[0x0000314a]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 75: SRC[0x0000214b]=0xfb != DST[0x0000314b]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 76: SRC[0x0000214c]=0xfc != DST[0x0000314c]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 77: SRC[0x0000214d]=0xfd != DST[0x0000314d]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 78: SRC[0x0000214e]=0xfe != DST[0x0000314e]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 79: SRC[0x0000214f]=0xff != DST[0x0000314f]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 80: SRC[0x00002150]=0x00 != DST[0x00003150]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 81: SRC[0x00002151]=0x01 != DST[0x00003151]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 82: SRC[0x00002152]=0x02 != DST[0x00003152]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 83: SRC[0x00002153]=0x03 != DST[0x00003153]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 84: SRC[0x00002154]=0x04 != DST[0x00003154]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 85: SRC[0x00002155]=0x05 != DST[0x00003155]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 86: SRC[0x00002156]=0x06 != DST[0x00003156]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 87: SRC[0x00002157]=0x07 != DST[0x00003157]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 88: SRC[0x00002158]=0x08 != DST[0x00003158]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 89: SRC[0x00002159]=0x09 != DST[0x00003159]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 90: SRC[0x0000215a]=0x0a != DST[0x0000315a]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 91: SRC[0x0000215b]=0x0b != DST[0x0000315b]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 92: SRC[0x0000215c]=0x0c != DST[0x0000315c]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 93: SRC[0x0000215d]=0x0d != DST[0x0000315d]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 94: SRC[0x0000215e]=0x0e != DST[0x0000315e]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 95: SRC[0x0000215f]=0x0f != DST[0x0000315f]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 96: SRC[0x00002160]=0x10 != DST[0x00003160]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 97: SRC[0x00002161]=0x11 != DST[0x00003161]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 98: SRC[0x00002162]=0x12 != DST[0x00003162]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 99: SRC[0x00002163]=0x13 != DST[0x00003163]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 100: SRC[0x00002164]=0x14 != DST[0x00003164]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 101: SRC[0x00002165]=0x15 != DST[0x00003165]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 102: SRC[0x00002166]=0x16 != DST[0x00003166]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 103: SRC[0x00002167]=0x17 != DST[0x00003167]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 104: SRC[0x00002168]=0x18 != DST[0x00003168]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 105: SRC[0x00002169]=0x19 != DST[0x00003169]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 106: SRC[0x0000216a]=0x1a != DST[0x0000316a]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 107: SRC[0x0000216b]=0x1b != DST[0x0000316b]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 108: SRC[0x0000216c]=0x1c != DST[0x0000316c]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 109: SRC[0x0000216d]=0x1d != DST[0x0000316d]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 110: SRC[0x0000216e]=0x1e != DST[0x0000316e]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 111: SRC[0x0000216f]=0x1f != DST[0x0000316f]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 112: SRC[0x00002170]=0x20 != DST[0x00003170]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 113: SRC[0x00002171]=0x21 != DST[0x00003171]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 114: SRC[0x00002172]=0x22 != DST[0x00003172]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 115: SRC[0x00002173]=0x23 != DST[0x00003173]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 116: SRC[0x00002174]=0x24 != DST[0x00003174]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 117: SRC[0x00002175]=0x25 != DST[0x00003175]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 118: SRC[0x00002176]=0x26 != DST[0x00003176]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 119: SRC[0x00002177]=0x27 != DST[0x00003177]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 120: SRC[0x00002178]=0x28 != DST[0x00003178]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 121: SRC[0x00002179]=0x29 != DST[0x00003179]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 122: SRC[0x0000217a]=0x2a != DST[0x0000317a]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 123: SRC[0x0000217b]=0x2b != DST[0x0000317b]=0xc3
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 124: SRC[0x0000217c]=0x2c != DST[0x0000317c]=0xc0
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 125: SRC[0x0000217d]=0x2d != DST[0x0000317d]=0xc1
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 126: SRC[0x0000217e]=0x2e != DST[0x0000317e]=0xc2
+# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 6062500: reporter [MEM_MISMATCH] Mismatch at offset 127: SRC[0x0000217f]=0x2f != DST[0x0000317f]=0xc3
+# UVM_ERROR tb/uvm/env/dma_scoreboard.sv(87) @ 6062500: uvm_test_top.env.m_scoreboard [SCB_MISMATCH] FAIL: Data mismatch for CH0: SRC[0x00002100] vs DST[0x00003100]
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(83) @ 6062500: uvm_test_top.env.m_scoreboard [SCB_MATCH] PASS: End-to-end memory match for CH0: SRC[0x00002200] == DST[0x00003200] (64 bytes)
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG CH0] FETCH_REQ: curr_desc_addr=0x00001000 ch_araddr=0x00001000
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# [DESC_WORD] time=6078000 word_idx=0 data=0x00002000 last=0
+# [DESC_WORD] time=6083000 word_idx=1 data=0x00003000 last=0
+# [DESC_WORD] time=6088000 word_idx=2 data=0x00001020 last=0
+# [DESC_WORD] time=6093000 word_idx=3 data=0x00000040 last=0
+# [DESC_WORD] time=6098000 word_idx=4 data=0x00000f59 last=0
+# [DESC_WORD] time=6103000 word_idx=5 data=0x00000000 last=0
+# [DESC_WORD] time=6108000 word_idx=6 data=0x00000000 last=0
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=0 ctrl=0x00000f59 len=64
+# [DEBUG DESC_ENG] Fetch finished: word_idx=7 rdata_last=1 ctrl=0x00000f59 len=64
+# [DESC_WORD] time=6113000 word_idx=7 data=0x00000000 last=1
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG CH0] Desc parsed: src=0x00002000 dst=0x00003000 len=64
+# [DEBUG MST] DESC_FETCH granted for CH0, target_addr=0x00001000 (ch_araddr=0x00001000)
+# UVM_INFO tb/uvm/tests/dma_sg_test.sv(30) @ 6162500: uvm_test_top [TEST] Scatter-Gather Linked-List DMA Test Finished
+# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 6162500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(106) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(107) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT]                DMA SCOREBOARD VERIFICATION REPORT                 
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(108) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(109) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total AXI Bursts Monitored : 81
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(110) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Transfers Checked    : 3
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(111) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Transfers Passed     : 2
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(112) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Bytes Verified       : 128 bytes
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(113) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Discrepancies/Errors : 1
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(114) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
+# UVM_ERROR tb/uvm/env/dma_scoreboard.sv(119) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   STATUS: *** FAILED - DETECTED DATA MISMATCHES ***
+# UVM_INFO tb/uvm/env/dma_scoreboard.sv(121) @ 6162500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
+# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 6162500: reporter [UVM/REPORT/SERVER] 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   14
+# UVM_INFO :   29
 # UVM_WARNING :    0
-# UVM_ERROR :    0
-# UVM_FATAL :    1
+# UVM_ERROR :  126
+# UVM_FATAL :    0
 # ** Report counts by id
 # [CFG_DEFAULT]     1
+# [MEM_MISMATCH]   124
 # [NO_DPI_TSTNAME]     1
-# [POLL_TIMEOUT]     1
 # [RNTST]     1
 # [SCB_EXPECT]     3
-# [SG_SEQ]     2
-# [TEST]     3
+# [SCB_MATCH]     2
+# [SCB_MISMATCH]     1
+# [SCB_REPORT]    11
+# [SG_SEQ]     3
+# [TEST]     4
+# [TEST_DONE]     1
 # [UVM/COMP/NAMECHECK]     1
 # [UVM/RELNOTES]     1
 # [UVMTOP]     1
 # 
-# ** Note: $finish    : C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(135)
-#    Time: 80062500 ps  Iteration: 2  Region: /uvm_pkg::uvm_sequence_base::start
-# End time: 08:08:02 on Sep 28,2026, Elapsed time: 0:00:02
+# ** Note: $finish    : C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 6162500 ps  Iteration: 69  Instance: /dma_tb_top
+# End time: 08:08:26 on Sep 28,2026, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
