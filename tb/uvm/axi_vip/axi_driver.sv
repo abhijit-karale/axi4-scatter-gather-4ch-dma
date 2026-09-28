@@ -82,6 +82,9 @@ class axi_driver extends uvm_driver #(axi_seq_item);
         for (int beat = 0; beat <= read_len; beat++) begin
           bit [31:0] word_data;
           word_data = ram.read_word(read_addr + (beat * 4));
+          if (read_addr >= 32'h0000_2100 && read_addr < 32'h0000_2200) begin
+            $display("[AXI_RD] addr=0x%08x data=0x%08x", read_addr + (beat * 4), word_data);
+          end
 
           vif.rvalid <= 1'b1;
           vif.rdata  <= word_data;
@@ -135,6 +138,9 @@ class axi_driver extends uvm_driver #(axi_seq_item);
 
           // Store into RAM model
           ram.write_word(write_addr + (beat * 4), vif.wdata);
+          if (write_addr >= 32'h0000_3100 && write_addr < 32'h0000_3200) begin
+            $display("[AXI_WR] addr=0x%08x data=0x%08x", write_addr + (beat * 4), vif.wdata);
+          end
         end
         vif.wready <= 1'b0;
 
