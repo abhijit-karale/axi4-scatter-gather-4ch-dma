@@ -58,8 +58,8 @@ module dma_csr_axi_lite
   output logic [NUM_CH-1:0]         ch_ie_done,
   output logic [NUM_CH-1:0]         ch_ie_err,
   output logic [NUM_CH-1:0]         ch_auto_wb,
-  output logic [AXI_ADDR_WIDTH-1:0] ch_head_desc_ptr [NUM_CH-1:0],
-  output logic [NUM_CH-1:0][1:0]    ch_priority,
+  output axi_addr_t                 ch_head_desc_ptr     [NUM_CH-1:0],
+  output prio_weight_t              ch_priority          [NUM_CH-1:0],
   output logic [NUM_CH-1:0]         ch_irq_clear_done,
   output logic [NUM_CH-1:0]         ch_irq_clear_err,
 
@@ -67,9 +67,9 @@ module dma_csr_axi_lite
   input  logic [NUM_CH-1:0]         ch_busy,
   input  logic [NUM_CH-1:0]         ch_done,
   input  logic [NUM_CH-1:0]         ch_error,
-  input  logic [3:0]                ch_fsm_state         [NUM_CH-1:0],
-  input  logic [AXI_ADDR_WIDTH-1:0] ch_curr_desc_ptr     [NUM_CH-1:0],
-  input  logic [31:0]               ch_bytes_transferred [NUM_CH-1:0],
+  input  ch_fsm_state_t             ch_fsm_state         [NUM_CH-1:0],
+  input  axi_addr_t                 ch_curr_desc_ptr     [NUM_CH-1:0],
+  input  ch_stat_word_t             ch_bytes_transferred [NUM_CH-1:0],
   input  logic [NUM_CH-1:0]         ch_irq_line
 );
 

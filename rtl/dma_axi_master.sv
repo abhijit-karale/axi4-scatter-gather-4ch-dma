@@ -30,29 +30,29 @@ module dma_axi_master
   output logic                      xfer_err,
 
   // Channel Transaction Requests (from granted channel)
-  input  logic [AXI_ADDR_WIDTH-1:0] ch_araddr  [NUM_CH-1:0],
-  input  logic [7:0]                ch_arlen   [NUM_CH-1:0],
-  input  logic [2:0]                ch_arsize  [NUM_CH-1:0],
-  input  logic [AXI_ADDR_WIDTH-1:0] ch_awaddr  [NUM_CH-1:0],
-  input  logic [7:0]                ch_awlen   [NUM_CH-1:0],
-  input  logic [2:0]                ch_awsize  [NUM_CH-1:0],
+  input  axi_addr_t                 ch_araddr       [NUM_CH-1:0],
+  input  axi_len_t                  ch_arlen        [NUM_CH-1:0],
+  input  axi_size_t                 ch_arsize       [NUM_CH-1:0],
+  input  axi_addr_t                 ch_awaddr       [NUM_CH-1:0],
+  input  axi_len_t                  ch_awlen        [NUM_CH-1:0],
+  input  axi_size_t                 ch_awsize       [NUM_CH-1:0],
 
   // Channel Data FIFO Interfaces
   // Read path: Master writes incoming RDATA into granted channel's FIFO
-  output logic [NUM_CH-1:0]                    ch_fifo_wr_en,
-  output logic [AXI_DATA_WIDTH-1:0]            ch_fifo_wr_data,
+  output logic [NUM_CH-1:0]         ch_fifo_wr_en,
+  output logic [AXI_DATA_WIDTH-1:0] ch_fifo_wr_data,
   // Write path: Master reads outgoing WDATA from granted channel's FIFO
-  output logic [NUM_CH-1:0]                    ch_fifo_rd_en,
-  input  logic [AXI_DATA_WIDTH-1:0]            ch_fifo_rd_data [NUM_CH-1:0],
+  output logic [NUM_CH-1:0]         ch_fifo_rd_en,
+  input  axi_data_t                 ch_fifo_rd_data [NUM_CH-1:0],
 
   // Descriptor Engine Interfaces
-  output logic [NUM_CH-1:0]                    ch_desc_rvalid,
-  output logic [AXI_DATA_WIDTH-1:0]            ch_desc_rdata,
-  output logic                                 ch_desc_rlast,
-  output logic [NUM_CH-1:0]                    ch_desc_rerr,
-  input  logic [AXI_DATA_WIDTH-1:0]            ch_desc_wdata   [NUM_CH-1:0],
-  input  logic [AXI_ADDR_WIDTH-1:0]            ch_desc_wb_addr [NUM_CH-1:0],
-  output logic [NUM_CH-1:0]                    ch_desc_wb_ack,
+  output logic [NUM_CH-1:0]         ch_desc_rvalid,
+  output logic [AXI_DATA_WIDTH-1:0] ch_desc_rdata,
+  output logic                      ch_desc_rlast,
+  output logic [NUM_CH-1:0]         ch_desc_rerr,
+  input  axi_data_t                 ch_desc_wdata   [NUM_CH-1:0],
+  input  axi_addr_t                 ch_desc_wb_addr [NUM_CH-1:0],
+  output logic [NUM_CH-1:0]         ch_desc_wb_ack,
 
   // Channel Burst Progress Tracking
   output logic [NUM_CH-1:0]                    ch_read_beat_ack,

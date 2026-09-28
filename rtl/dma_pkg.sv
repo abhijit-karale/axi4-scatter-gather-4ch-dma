@@ -25,6 +25,15 @@ package dma_pkg;
   localparam int MAX_BURST_LEN       = 16;   // Max AXI beats per burst (1 to 256)
   localparam int DESC_SIZE_BYTES     = 32;   // 8 x 32-bit words per descriptor
 
+  // Type aliases for arrays to avoid vlog port kind warnings
+  typedef logic [1:0]                prio_weight_t;
+  typedef logic [AXI_ADDR_WIDTH-1:0] axi_addr_t;
+  typedef logic [AXI_DATA_WIDTH-1:0] axi_data_t;
+  typedef logic [7:0]                axi_len_t;
+  typedef logic [2:0]                axi_size_t;
+  typedef logic [3:0]                ch_fsm_state_t;
+  typedef logic [31:0]               ch_stat_word_t;
+
   // --------------------------------------------------------------------------
   // AXI4 Burst Type Definitions
   // --------------------------------------------------------------------------
