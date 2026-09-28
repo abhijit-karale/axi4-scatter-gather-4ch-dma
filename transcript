@@ -1,5 +1,5 @@
 # vsim -c -nodpiexports -do "run -all; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
-# Start time: 08:15:26 on Sep 28,2026
+# Start time: 08:17:28 on Sep 28,2026
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
@@ -101,116 +101,28 @@
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002100 -> DST=0x00003100 (128 bytes, IOC=0)
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002200 -> DST=0x00003200 (64 bytes, IOC=1)
 # UVM_INFO tb/uvm/seq/dma_sg_seq.sv(86) @ 82500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Polling Channel 0 Status for completion...
-# UVM_INFO tb/uvm/seq/dma_sg_seq.sv(89) @ 1542500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Channel 0 completed linked-list scatter-gather transfer successfully!
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(83) @ 1542500: uvm_test_top.env.m_scoreboard [SCB_MATCH] PASS: End-to-end memory match for CH0: SRC[0x00002000] == DST[0x00003000] (64 bytes)
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 60: SRC[0x0000213c]=0xec != DST[0x0000313c]=0xf0
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 61: SRC[0x0000213d]=0xed != DST[0x0000313d]=0xf1
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 62: SRC[0x0000213e]=0xee != DST[0x0000313e]=0xf2
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 63: SRC[0x0000213f]=0xef != DST[0x0000313f]=0xf3
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 64: SRC[0x00002140]=0xf0 != DST[0x00003140]=0xf4
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 65: SRC[0x00002141]=0xf1 != DST[0x00003141]=0xf5
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 66: SRC[0x00002142]=0xf2 != DST[0x00003142]=0xf6
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 67: SRC[0x00002143]=0xf3 != DST[0x00003143]=0xf7
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 68: SRC[0x00002144]=0xf4 != DST[0x00003144]=0xf8
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 69: SRC[0x00002145]=0xf5 != DST[0x00003145]=0xf9
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 70: SRC[0x00002146]=0xf6 != DST[0x00003146]=0xfa
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 71: SRC[0x00002147]=0xf7 != DST[0x00003147]=0xfb
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 72: SRC[0x00002148]=0xf8 != DST[0x00003148]=0xfc
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 73: SRC[0x00002149]=0xf9 != DST[0x00003149]=0xfd
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 74: SRC[0x0000214a]=0xfa != DST[0x0000314a]=0xfe
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 75: SRC[0x0000214b]=0xfb != DST[0x0000314b]=0xff
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 76: SRC[0x0000214c]=0xfc != DST[0x0000314c]=0x00
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 77: SRC[0x0000214d]=0xfd != DST[0x0000314d]=0x01
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 78: SRC[0x0000214e]=0xfe != DST[0x0000314e]=0x02
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 79: SRC[0x0000214f]=0xff != DST[0x0000314f]=0x03
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 80: SRC[0x00002150]=0x00 != DST[0x00003150]=0x04
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 81: SRC[0x00002151]=0x01 != DST[0x00003151]=0x05
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 82: SRC[0x00002152]=0x02 != DST[0x00003152]=0x06
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 83: SRC[0x00002153]=0x03 != DST[0x00003153]=0x07
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 84: SRC[0x00002154]=0x04 != DST[0x00003154]=0x08
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 85: SRC[0x00002155]=0x05 != DST[0x00003155]=0x09
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 86: SRC[0x00002156]=0x06 != DST[0x00003156]=0x0a
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 87: SRC[0x00002157]=0x07 != DST[0x00003157]=0x0b
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 88: SRC[0x00002158]=0x08 != DST[0x00003158]=0x0c
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 89: SRC[0x00002159]=0x09 != DST[0x00003159]=0x0d
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 90: SRC[0x0000215a]=0x0a != DST[0x0000315a]=0x0e
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 91: SRC[0x0000215b]=0x0b != DST[0x0000315b]=0x0f
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 92: SRC[0x0000215c]=0x0c != DST[0x0000315c]=0x10
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 93: SRC[0x0000215d]=0x0d != DST[0x0000315d]=0x11
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 94: SRC[0x0000215e]=0x0e != DST[0x0000315e]=0x12
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 95: SRC[0x0000215f]=0x0f != DST[0x0000315f]=0x13
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 96: SRC[0x00002160]=0x10 != DST[0x00003160]=0x14
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 97: SRC[0x00002161]=0x11 != DST[0x00003161]=0x15
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 98: SRC[0x00002162]=0x12 != DST[0x00003162]=0x16
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 99: SRC[0x00002163]=0x13 != DST[0x00003163]=0x17
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 100: SRC[0x00002164]=0x14 != DST[0x00003164]=0x18
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 101: SRC[0x00002165]=0x15 != DST[0x00003165]=0x19
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 102: SRC[0x00002166]=0x16 != DST[0x00003166]=0x1a
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 103: SRC[0x00002167]=0x17 != DST[0x00003167]=0x1b
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 104: SRC[0x00002168]=0x18 != DST[0x00003168]=0x1c
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 105: SRC[0x00002169]=0x19 != DST[0x00003169]=0x1d
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 106: SRC[0x0000216a]=0x1a != DST[0x0000316a]=0x1e
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 107: SRC[0x0000216b]=0x1b != DST[0x0000316b]=0x1f
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 108: SRC[0x0000216c]=0x1c != DST[0x0000316c]=0x20
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 109: SRC[0x0000216d]=0x1d != DST[0x0000316d]=0x21
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 110: SRC[0x0000216e]=0x1e != DST[0x0000316e]=0x22
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 111: SRC[0x0000216f]=0x1f != DST[0x0000316f]=0x23
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 112: SRC[0x00002170]=0x20 != DST[0x00003170]=0x24
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 113: SRC[0x00002171]=0x21 != DST[0x00003171]=0x25
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 114: SRC[0x00002172]=0x22 != DST[0x00003172]=0x26
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 115: SRC[0x00002173]=0x23 != DST[0x00003173]=0x27
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 116: SRC[0x00002174]=0x24 != DST[0x00003174]=0x28
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 117: SRC[0x00002175]=0x25 != DST[0x00003175]=0x29
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 118: SRC[0x00002176]=0x26 != DST[0x00003176]=0x2a
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 119: SRC[0x00002177]=0x27 != DST[0x00003177]=0x2b
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 120: SRC[0x00002178]=0x28 != DST[0x00003178]=0x2c
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 121: SRC[0x00002179]=0x29 != DST[0x00003179]=0x2d
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 122: SRC[0x0000217a]=0x2a != DST[0x0000317a]=0x2e
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 123: SRC[0x0000217b]=0x2b != DST[0x0000317b]=0x2f
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 124: SRC[0x0000217c]=0x2c != DST[0x0000317c]=0x00
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 125: SRC[0x0000217d]=0x2d != DST[0x0000317d]=0x00
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 126: SRC[0x0000217e]=0x2e != DST[0x0000317e]=0x00
-# UVM_ERROR tb/uvm/axi_vip/axi_ram_model.sv(78) @ 1542500: reporter [MEM_MISMATCH] Mismatch at offset 127: SRC[0x0000217f]=0x2f != DST[0x0000317f]=0x00
-# UVM_ERROR tb/uvm/env/dma_scoreboard.sv(87) @ 1542500: uvm_test_top.env.m_scoreboard [SCB_MISMATCH] FAIL: Data mismatch for CH0: SRC[0x00002100] vs DST[0x00003100]
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(83) @ 1542500: uvm_test_top.env.m_scoreboard [SCB_MATCH] PASS: End-to-end memory match for CH0: SRC[0x00002200] == DST[0x00003200] (64 bytes)
-# UVM_INFO tb/uvm/tests/dma_sg_test.sv(30) @ 1642500: uvm_test_top [TEST] Scatter-Gather Linked-List DMA Test Finished
-# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 1642500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(106) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(107) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT]                DMA SCOREBOARD VERIFICATION REPORT                 
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(108) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(109) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total AXI Bursts Monitored : 20
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(110) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Transfers Checked    : 3
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(111) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Transfers Passed     : 2
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(112) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Bytes Verified       : 128 bytes
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(113) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   Total Discrepancies/Errors : 1
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(114) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
-# UVM_ERROR tb/uvm/env/dma_scoreboard.sv(119) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT]   STATUS: *** FAILED - DETECTED DATA MISMATCHES ***
-# UVM_INFO tb/uvm/env/dma_scoreboard.sv(121) @ 1642500: uvm_test_top.env.m_scoreboard [SCB_REPORT] ==================================================================
-# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 1642500: reporter [UVM/REPORT/SERVER] 
+# UVM_FATAL tb/uvm/seq/dma_base_seq.sv(49) @ 80062500: uvm_test_top.env.m_axil_agent.sequencer@@seq [POLL_TIMEOUT] Timeout polling register 0x044! Mask=0x00000002, Exp=0x00000002, Read=0x00000051
+# UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 80062500: reporter [UVM/REPORT/SERVER] 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   29
+# UVM_INFO :   14
 # UVM_WARNING :    0
-# UVM_ERROR :   70
-# UVM_FATAL :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    1
 # ** Report counts by id
 # [CFG_DEFAULT]     1
-# [MEM_MISMATCH]    68
 # [NO_DPI_TSTNAME]     1
+# [POLL_TIMEOUT]     1
 # [RNTST]     1
 # [SCB_EXPECT]     3
-# [SCB_MATCH]     2
-# [SCB_MISMATCH]     1
-# [SCB_REPORT]    11
-# [SG_SEQ]     3
-# [TEST]     4
-# [TEST_DONE]     1
+# [SG_SEQ]     2
+# [TEST]     3
 # [UVM/COMP/NAMECHECK]     1
 # [UVM/RELNOTES]     1
 # [UVMTOP]     1
 # 
-# ** Note: $finish    : C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
-#    Time: 1642500 ps  Iteration: 68  Instance: /dma_tb_top
-# End time: 08:15:27 on Sep 28,2026, Elapsed time: 0:00:01
+# ** Note: $finish    : C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(135)
+#    Time: 80062500 ps  Iteration: 2  Region: /uvm_pkg::uvm_sequence_base::start
+# End time: 08:17:31 on Sep 28,2026, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
