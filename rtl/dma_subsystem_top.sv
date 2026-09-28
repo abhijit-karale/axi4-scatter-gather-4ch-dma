@@ -118,8 +118,8 @@ module dma_subsystem_top
   logic [NUM_CH-1:0]         ch_ie_done;
   logic [NUM_CH-1:0]         ch_ie_err;
   logic [NUM_CH-1:0]         ch_auto_wb;
-  logic [AXI_ADDR_WIDTH-1:0] ch_head_desc_ptr [NUM_CH-1:0];
-  logic [NUM_CH-1:0][1:0]    ch_priority;
+  axi_addr_t                 ch_head_desc_ptr [NUM_CH-1:0];
+  prio_weight_t              ch_priority      [NUM_CH-1:0];
   logic [NUM_CH-1:0]         ch_irq_clear_done;
   logic [NUM_CH-1:0]         ch_irq_clear_err;
 
@@ -127,9 +127,9 @@ module dma_subsystem_top
   logic [NUM_CH-1:0]         ch_busy;
   logic [NUM_CH-1:0]         ch_done;
   logic [NUM_CH-1:0]         ch_error;
-  logic [3:0]                ch_fsm_state         [NUM_CH-1:0];
-  logic [AXI_ADDR_WIDTH-1:0] ch_curr_desc_ptr     [NUM_CH-1:0];
-  logic [31:0]               ch_bytes_transferred [NUM_CH-1:0];
+  ch_fsm_state_t             ch_fsm_state         [NUM_CH-1:0];
+  axi_addr_t                 ch_curr_desc_ptr     [NUM_CH-1:0];
+  ch_stat_word_t             ch_bytes_transferred [NUM_CH-1:0];
   logic [NUM_CH-1:0]         ch_irq_line;
 
   assign irq_ch = ch_irq_line;
@@ -149,24 +149,24 @@ module dma_subsystem_top
   logic [1:0]                arb_grant_type;
 
   // Channel to AXI Master Engine Signals
-  logic [AXI_ADDR_WIDTH-1:0] ch_araddr  [NUM_CH-1:0];
-  logic [7:0]                ch_arlen   [NUM_CH-1:0];
-  logic [2:0]                ch_arsize  [NUM_CH-1:0];
-  logic [AXI_ADDR_WIDTH-1:0] ch_awaddr  [NUM_CH-1:0];
-  logic [7:0]                ch_awlen   [NUM_CH-1:0];
-  logic [2:0]                ch_awsize  [NUM_CH-1:0];
+  axi_addr_t                 ch_araddr  [NUM_CH-1:0];
+  axi_len_t                  ch_arlen   [NUM_CH-1:0];
+  axi_size_t                 ch_arsize  [NUM_CH-1:0];
+  axi_addr_t                 ch_awaddr  [NUM_CH-1:0];
+  axi_len_t                  ch_awlen   [NUM_CH-1:0];
+  axi_size_t                 ch_awsize  [NUM_CH-1:0];
 
   logic [NUM_CH-1:0]         ch_fifo_wr_en;
   logic [AXI_DATA_WIDTH-1:0] ch_fifo_wr_data;
   logic [NUM_CH-1:0]         ch_fifo_rd_en;
-  logic [AXI_DATA_WIDTH-1:0] ch_fifo_rd_data [NUM_CH-1:0];
+  axi_data_t                 ch_fifo_rd_data [NUM_CH-1:0];
 
   logic [NUM_CH-1:0]         ch_desc_rvalid;
   logic [AXI_DATA_WIDTH-1:0] ch_desc_rdata;
   logic                      ch_desc_rlast;
   logic [NUM_CH-1:0]         ch_desc_rerr;
-  logic [AXI_DATA_WIDTH-1:0] ch_desc_wdata   [NUM_CH-1:0];
-  logic [AXI_ADDR_WIDTH-1:0] ch_desc_wb_addr [NUM_CH-1:0];
+  axi_data_t                 ch_desc_wdata   [NUM_CH-1:0];
+  axi_addr_t                 ch_desc_wb_addr [NUM_CH-1:0];
   logic [NUM_CH-1:0]         ch_desc_wb_ack;
 
   logic [NUM_CH-1:0]         ch_read_beat_ack;

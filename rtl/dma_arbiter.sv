@@ -19,7 +19,7 @@ module dma_arbiter
 
   // Configuration
   input  arb_mode_t               arb_mode,
-  input  prio_weight_t            ch_prio_weight [NUM_CH-1:0], // Per-channel priority weight if configured
+  input  wire prio_weight_t       ch_prio_weight [NUM_CH-1:0], // Per-channel priority weight if configured
 
   // Channel Request Inputs (Channel 0..3)
   input  logic [NUM_CH-1:0]       req_desc_fetch,

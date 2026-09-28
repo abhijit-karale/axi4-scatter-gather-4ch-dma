@@ -67,9 +67,9 @@ module dma_csr_axi_lite
   input  logic [NUM_CH-1:0]         ch_busy,
   input  logic [NUM_CH-1:0]         ch_done,
   input  logic [NUM_CH-1:0]         ch_error,
-  input  ch_fsm_state_t             ch_fsm_state         [NUM_CH-1:0],
-  input  axi_addr_t                 ch_curr_desc_ptr     [NUM_CH-1:0],
-  input  ch_stat_word_t             ch_bytes_transferred [NUM_CH-1:0],
+  input  wire ch_fsm_state_t        ch_fsm_state         [NUM_CH-1:0],
+  input  wire axi_addr_t            ch_curr_desc_ptr     [NUM_CH-1:0],
+  input  wire ch_stat_word_t        ch_bytes_transferred [NUM_CH-1:0],
   input  logic [NUM_CH-1:0]         ch_irq_line
 );
 
