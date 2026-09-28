@@ -257,8 +257,6 @@ module dma_axi_master
                 target_addr <= ch_awaddr[grant_id];
                 target_len  <= clamp_to_4kb(ch_awaddr[grant_id], ch_awlen[grant_id], ch_awsize[grant_id]);
                 target_size <= ch_awsize[grant_id];
-                $display("[MST_AW] time=%0t DATA_WRITE granted: ch_awaddr=0x%08x target_len=%0d (ch_awlen=%0d)",
-                         $time, ch_awaddr[grant_id], clamp_to_4kb(ch_awaddr[grant_id], ch_awlen[grant_id], ch_awsize[grant_id]), ch_awlen[grant_id]);
               end
               2'b11: begin // DESC_WB: Single beat write
                 target_addr <= ch_desc_wb_addr[grant_id];
