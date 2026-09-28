@@ -434,6 +434,8 @@ module dma_channel
 
         CH_STATE_WRITE_BURST: begin
           if (write_beat_ack) begin
+            $display("[CH_DST_TRACE] time=%0t beat: curr_dst_addr was 0x%08x -> now 0x%08x, rem_write=%0d",
+                     $time, curr_dst_addr, curr_dst_addr + BYTES_PER_BEAT, rem_write_bytes - BYTES_PER_BEAT);
             if (desc_dst_inc) begin
               curr_dst_addr <= curr_dst_addr + BYTES_PER_BEAT;
             end
