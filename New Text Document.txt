@@ -1,0 +1,23 @@
+# Role & Operational Task
+Act as a Principal SoC Architect and Verification Specialist. Generate a complete, production-grade, standalone codebase and verification suite for the project below with zero placeholders or pseudocode.
+
+## 1. Candidate Context
+- Candidate: Abhijit Karale (Strong firmware background in peripheral drivers, RTOS queues, and AMBA bus interfaces).
+- Target Tech Node & Clock: SkyWater 130nm @ 200 MHz.
+
+## 2. Project Directive: Multi-Channel Scatter-Gather DMA Subsystem
+- Focus: Descriptor fetching, high-throughput memory-to-memory/memory-to-stream transfers, independent channel arbitration.
+- Key Specifications:
+  * 4 independent DMA channels with configurable priority (Fixed vs. Round-Robin).
+  * AXI4 Master interface for data read/write bursts and descriptor prefetch from memory.
+  * AXI4-Lite Slave interface for control/status registers (CSRs).
+  * Ring buffer descriptor engine supporting linked-list scatter-gather transactions with interrupt generation.
+
+## 3. Mandatory Deliverables
+1. Microarchitectural Spec: Architectural block diagram (ASCII), descriptor format spec, channel state machines, and arbiter logic.
+2. Synthesizable RTL (`rtl/`): Parameterized DMA channel, descriptor parser, AXI master engine, and APB/AXI-Lite register block.
+3. Formal Verification (`tb/formal/`): SVA proofs guaranteeing zero descriptor drop, AXI burst address continuity, and interrupt assertion accuracy.
+4. Layered UVM 1.2 Suite (`tb/uvm/`): Complete AXI VIP, scatter-gather descriptor randomization sequences, and end-to-end memory comparison scoreboard.
+5. Cycle-Accurate Waveform Guide: ASCII diagram detailing descriptor fetch, channel handover, and AXI burst streaming.
+6. Synthesis Setup (`syn/`): 200 MHz SDC timing constraints and synthesis automation script.
+7. Repo Blueprint: File layout, complete `Makefile`, and production `README.md`.
