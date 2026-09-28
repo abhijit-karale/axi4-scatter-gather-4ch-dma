@@ -1,6 +1,6 @@
-# vsim -c -nodpiexports -do "run 2000ns; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
-# Start time: 08:21:30 on Sep 28,2026
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# vsim -c -nodpiexports -do "run 500ns; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
+# Start time: 08:22:26 on Sep 28,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
 # //
@@ -29,7 +29,7 @@
 # Loading work.dma_csr_axi_lite(fast)
 # Loading work.dma_arbiter(fast)
 # Loading work.dma_axi_master(fast)
-# run 2000ns
+# run 500ns
 # UVM_INFO C:/questasim64_10.7c/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
 # ----------------------------------------------------------------
 # UVM-1.2
@@ -102,48 +102,41 @@
 # UVM_INFO tb/uvm/env/dma_scoreboard.sv(67) @ 0: uvm_test_top.env.m_scoreboard [SCB_EXPECT] Added expected XFER: CH0 SRC=0x00002200 -> DST=0x00003200 (64 bytes, IOC=1)
 # [83000] [CH0_FSM] CH_STATE_IDLE -> CH_STATE_FETCH_REQ (rem_rd=0, rem_wr=0, chunk=0)
 # UVM_INFO tb/uvm/seq/dma_sg_seq.sv(86) @ 82500: uvm_test_top.env.m_axil_agent.sequencer@@seq [SG_SEQ] Polling Channel 0 Status for completion...
+# [88000] [MST_FSM] MST_IDLE -> MST_AR_ADDR, ch=0, type=00, len=0, addr=00000000
 # [88000] [CH0_FSM] CH_STATE_FETCH_REQ -> CH_STATE_FETCH_WAIT (rem_rd=0, rem_wr=0, chunk=0)
+# [93000] [MST_FSM] MST_AR_ADDR -> MST_R_DATA, ch=0, type=00, len=7, addr=00001000
+# [133000] [MST_FSM] MST_R_DATA -> MST_COMPLETE, ch=0, type=00, len=7, addr=00001000
+# [138000] [MST_FSM] MST_COMPLETE -> MST_IDLE, ch=0, type=00, len=7, addr=00001000
 # [143000] [CH0_FSM] CH_STATE_FETCH_WAIT -> CH_STATE_PARSE_DESC (rem_rd=0, rem_wr=0, chunk=0)
+# [143000] [MST_FSM] MST_IDLE -> MST_AR_ADDR, ch=0, type=00, len=7, addr=00001000
+# [148000] [MST_FSM] MST_AR_ADDR -> MST_R_DATA, ch=0, type=00, len=7, addr=00001000
 # [148000] [CH0_FSM] CH_STATE_PARSE_DESC -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
 # [153000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [188000] [MST_FSM] MST_R_DATA -> MST_COMPLETE, ch=0, type=00, len=7, addr=00001000
 # [193000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [193000] [MST_FSM] MST_COMPLETE -> MST_IDLE, ch=0, type=00, len=7, addr=00001000
+# [198000] [MST_FSM] MST_IDLE -> MST_AR_ADDR, ch=0, type=00, len=7, addr=00001000
 # [203000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [203000] [MST_FSM] MST_AR_ADDR -> MST_R_DATA, ch=0, type=01, len=15, addr=00002000
+# [283000] [MST_FSM] MST_R_DATA -> MST_COMPLETE, ch=0, type=01, len=15, addr=00002000
 # [288000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [288000] [MST_FSM] MST_COMPLETE -> MST_IDLE, ch=0, type=01, len=15, addr=00002000
+# [293000] [MST_FSM] MST_IDLE -> MST_AW_ADDR, ch=0, type=01, len=15, addr=00002000
 # [298000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [298000] [MST_FSM] MST_AW_ADDR -> MST_W_DATA, ch=0, type=10, len=15, addr=00003000
+# [378000] [MST_FSM] MST_W_DATA -> MST_B_RESP, ch=0, type=10, len=15, addr=00003000
+# [383000] [MST_FSM] MST_B_RESP -> MST_COMPLETE, ch=0, type=10, len=15, addr=00003000
 # [388000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [388000] [MST_FSM] MST_COMPLETE -> MST_IDLE, ch=0, type=10, len=15, addr=00003000
+# [393000] [MST_FSM] MST_IDLE -> MST_AR_ADDR, ch=0, type=10, len=15, addr=00003000
 # [398000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [398000] [MST_FSM] MST_AR_ADDR -> MST_R_DATA, ch=0, type=01, len=15, addr=00002000
+# [478000] [MST_FSM] MST_R_DATA -> MST_COMPLETE, ch=0, type=01, len=15, addr=00002000
 # [483000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
+# [483000] [MST_FSM] MST_COMPLETE -> MST_IDLE, ch=0, type=01, len=15, addr=00002000
+# [488000] [MST_FSM] MST_IDLE -> MST_AW_ADDR, ch=0, type=01, len=15, addr=00002000
 # [493000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [583000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [593000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [678000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [688000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [778000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [788000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [873000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [883000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [973000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [983000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1068000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1078000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1168000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1178000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1263000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1273000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1363000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1373000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1458000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1468000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1558000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1568000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1653000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1663000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1753000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1763000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1848000] [CH0_FSM] CH_STATE_WRITE_BURST -> CH_STATE_READ_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1858000] [CH0_FSM] CH_STATE_READ_REQ -> CH_STATE_READ_BURST (rem_rd=64, rem_wr=64, chunk=15)
-# [1948000] [CH0_FSM] CH_STATE_READ_BURST -> CH_STATE_WRITE_REQ (rem_rd=64, rem_wr=64, chunk=15)
-# [1958000] [CH0_FSM] CH_STATE_WRITE_REQ -> CH_STATE_WRITE_BURST (rem_rd=64, rem_wr=64, chunk=15)
+# [493000] [MST_FSM] MST_AW_ADDR -> MST_W_DATA, ch=0, type=10, len=15, addr=00003000
 #  quit -f
-# End time: 08:21:31 on Sep 28,2026, Elapsed time: 0:00:01
+# End time: 08:22:28 on Sep 28,2026, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
