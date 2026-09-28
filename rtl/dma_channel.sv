@@ -195,35 +195,21 @@ module dma_channel
     .engine_done      (desc_engine_done)
   );
 
-  // Calculate burst length for upcoming operations
+  // Transfer Chunk Tracking
+  logic [7:0]  chunk_beats;
   logic [31:0] rem_read_words;
   logic [31:0] rem_write_words;
+
   assign rem_read_words  = (rem_read_bytes + BYTES_PER_BEAT - 1) >> SIZE_SHIFT;
   assign rem_write_words = (rem_write_bytes + BYTES_PER_BEAT - 1) >> SIZE_SHIFT;
 
-  always_comb begin
-    logic [31:0] max_rd_beats;
-    max_rd_beats = rem_read_words;
-    if (max_rd_beats > MAX_BURST)  max_rd_beats = MAX_BURST;
-    if (max_rd_beats > fifo_avail) max_rd_beats = fifo_avail;
-    if (max_rd_beats > 0) calc_read_len = 8'(max_rd_beats - 1);
-    else calc_read_len = '0;
-
-    logic [31:0] max_wr_beats;
-    max_wr_beats = rem_write_words;
-    if (max_wr_beats > MAX_BURST)  max_wr_beats = MAX_BURST;
-    if (max_wr_beats > fifo_level) max_wr_beats = fifo_level;
-    if (max_wr_beats > 0) calc_write_len = 8'(max_wr_beats - 1);
-    else calc_write_len = '0;
-  end
-
   // AXI Master Request Parameters
   assign ch_araddr = (state == CH_STATE_FETCH_REQ || state == CH_STATE_FETCH_WAIT) ? curr_desc_addr : curr_src_addr;
-  assign ch_arlen  = (state == CH_STATE_FETCH_REQ || state == CH_STATE_FETCH_WAIT) ? 8'd7 : calc_read_len;
+  assign ch_arlen  = (state == CH_STATE_FETCH_REQ || state == CH_STATE_FETCH_WAIT) ? 8'd7 : chunk_beats;
   assign ch_arsize = 3'b010; // 4 bytes
 
   assign ch_awaddr = curr_dst_addr;
-  assign ch_awlen  = calc_write_len;
+  assign ch_awlen  = chunk_beats;
   assign ch_awsize = 3'b010; // 4 bytes
 
   // Arbiter Request Generation
@@ -267,15 +253,11 @@ module dma_channel
         end
 
         CH_STATE_PARSE_DESC: begin
-          // Ready to begin data transfer
-          if (rem_read_bytes > 0 && fifo_avail >= 16) begin
+          // Start first read burst
+          if (rem_read_bytes > 0) begin
             state_next = CH_STATE_READ_REQ;
-          end else if (fifo_level > 0) begin
-            state_next = CH_STATE_WRITE_REQ;
-          end else if (rem_write_bytes == 0) begin
-            state_next = CH_STATE_NEXT_DESC;
           end else begin
-            state_next = CH_STATE_READ_REQ;
+            state_next = CH_STATE_NEXT_DESC;
           end
         end
 
@@ -289,16 +271,8 @@ module dma_channel
           if (bus_err) begin
             state_next = CH_STATE_ERROR;
           end else if (burst_complete) begin
-            // Decide next action: write if FIFO has enough data or read complete
-            if (fifo_level >= 16 || (rem_read_bytes == 0 && fifo_level > 0)) begin
-              state_next = CH_STATE_WRITE_REQ;
-            end else if (rem_read_bytes > 0 && fifo_avail >= 16) begin
-              state_next = CH_STATE_READ_REQ;
-            end else if (fifo_level > 0) begin
-              state_next = CH_STATE_WRITE_REQ;
-            end else begin
-              state_next = CH_STATE_READ_REQ;
-            end
+            // Read burst complete -> drain FIFO to destination
+            state_next = CH_STATE_WRITE_REQ;
           end
         end
 
@@ -320,15 +294,150 @@ module dma_channel
               end else begin
                 state_next    = CH_STATE_NEXT_DESC;
               end
-            end else if (fifo_level >= 16 || (rem_read_bytes == 0 && fifo_level > 0)) begin
-              state_next = CH_STATE_WRITE_REQ;
-            end else if (rem_read_bytes > 0 && fifo_avail >= 16) begin
-              state_next = CH_STATE_READ_REQ;
             end else begin
+              // Next chunk
               state_next = CH_STATE_READ_REQ;
             end
           end
         end
+
+        CH_STATE_WB_REQ: begin
+          if (arb_granted && (arb_grant_type == 2'b11)) begin
+            state_next = CH_STATE_WB_WAIT;
+          end
+        end
+
+        CH_STATE_WB_WAIT: begin
+          if (desc_wb_ack) begin
+            state_next = CH_STATE_NEXT_DESC;
+          end
+        end
+
+        CH_STATE_NEXT_DESC: begin
+          if (desc_stop || (desc_next_addr == '0)) begin
+            state_next = CH_STATE_DONE;
+          end else begin
+            // Fetch next linked descriptor
+            desc_fetch_start = 1'b1;
+            state_next       = CH_STATE_FETCH_REQ;
+          end
+        end
+
+        CH_STATE_DONE: begin
+          if (!ch_en || (ch_start && ch_en)) begin
+            state_next = CH_STATE_IDLE;
+          end
+        end
+
+        CH_STATE_ERROR: begin
+          if (!ch_en) begin
+            state_next = CH_STATE_IDLE;
+          end
+        end
+
+        default: state_next = CH_STATE_IDLE;
+      endcase
+    end
+  end
+
+  // Sequential Datapath Updates
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      state            <= CH_STATE_IDLE;
+      curr_desc_addr   <= '0;
+      curr_src_addr    <= '0;
+      curr_dst_addr    <= '0;
+      rem_read_bytes   <= '0;
+      rem_write_bytes  <= '0;
+      cumul_bytes      <= '0;
+      chunk_beats      <= '0;
+      irq_done_pending <= 1'b0;
+      irq_err_pending  <= 1'b0;
+    end else begin
+      state <= state_next;
+
+      // Handle IRQ Clear from CSR
+      if (irq_clear_done) irq_done_pending <= 1'b0;
+      if (irq_clear_err)  irq_err_pending  <= 1'b0;
+
+      case (state)
+        CH_STATE_IDLE: begin
+          if (ch_en && ch_start) begin
+            curr_desc_addr <= ch_head_desc_ptr;
+            cumul_bytes    <= '0;
+          end
+        end
+
+        CH_STATE_FETCH_WAIT: begin
+          if (desc_engine_done && desc_valid) begin
+            curr_src_addr   <= desc_src_addr;
+            curr_dst_addr   <= desc_dst_addr;
+            rem_read_bytes  <= desc_transfer_len;
+            rem_write_bytes <= desc_transfer_len;
+            chunk_beats     <= ((desc_transfer_len + 3) >> 2 > MAX_BURST) ? 8'(MAX_BURST - 1) : 8'(((desc_transfer_len + 3) >> 2) - 1);
+          end
+        end
+
+        CH_STATE_READ_BURST: begin
+          if (read_beat_ack) begin
+            if (desc_src_inc) begin
+              curr_src_addr <= curr_src_addr + BYTES_PER_BEAT;
+            end
+            if (rem_read_bytes >= BYTES_PER_BEAT) begin
+              rem_read_bytes <= rem_read_bytes - BYTES_PER_BEAT;
+            end else begin
+              rem_read_bytes <= '0;
+            end
+          end
+        end
+
+        CH_STATE_WRITE_BURST: begin
+          if (write_beat_ack) begin
+            if (desc_dst_inc) begin
+              curr_dst_addr <= curr_dst_addr + BYTES_PER_BEAT;
+            end
+            if (rem_write_bytes >= BYTES_PER_BEAT) begin
+              rem_write_bytes <= rem_write_bytes - BYTES_PER_BEAT;
+              cumul_bytes     <= cumul_bytes + BYTES_PER_BEAT;
+            end else begin
+              cumul_bytes     <= cumul_bytes + rem_write_bytes;
+              rem_write_bytes <= '0;
+            end
+          end
+
+          if (burst_complete && (rem_write_bytes > 0)) begin
+            // Compute next chunk beats
+            logic [31:0] next_words;
+            next_words = (rem_write_bytes + BYTES_PER_BEAT - 1) >> SIZE_SHIFT;
+            chunk_beats <= (next_words > MAX_BURST) ? 8'(MAX_BURST - 1) : 8'(next_words - 1);
+          end
+        end
+
+        CH_STATE_NEXT_DESC: begin
+          // Trigger IRQ if Interrupt on Completion was requested
+          if (desc_ioc) begin
+            irq_done_pending <= 1'b1;
+          end
+
+          if (!desc_stop && (desc_next_addr != '0)) begin
+            curr_desc_addr <= desc_next_addr;
+          end
+        end
+
+        CH_STATE_DONE: begin
+          if (desc_ioc) begin
+            irq_done_pending <= 1'b1;
+          end
+        end
+
+        CH_STATE_ERROR: begin
+          irq_err_pending <= 1'b1;
+        end
+
+        default: ;
+      endcase
+    end
+  end
 
         CH_STATE_WB_REQ: begin
           if (arb_granted && (arb_grant_type == 2'b11)) begin
