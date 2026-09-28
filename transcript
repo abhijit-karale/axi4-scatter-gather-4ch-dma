@@ -1,8 +1,8 @@
-# vsim -c -do "run -all; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
-# Start time: 07:58:24 on Sep 28,2026
+# vsim -c -L mtiUvm -do "run -all; quit -f" "+UVM_TESTNAME=dma_sg_test" dma_tb_top 
+# Start time: 08:01:34 on Sep 28,2026
 # ** Fatal: (vsim-7019) Can't locate a C/C++ compiler for 'DPI Export Compilation'.
 # 
 # FATAL ERROR while loading design
 # Error loading design
-# End time: 07:58:24 on Sep 28,2026, Elapsed time: 0:00:00
+# End time: 08:01:34 on Sep 28,2026, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
