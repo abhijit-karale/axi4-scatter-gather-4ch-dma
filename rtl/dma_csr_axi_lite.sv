@@ -153,6 +153,11 @@ module dma_csr_axi_lite
       for (int i = 0; i < NUM_CH; i++) begin
         ch_irq_clear_done[i] <= 1'b0;
         ch_irq_clear_err[i]  <= 1'b0;
+
+        // Auto-clear start bit once channel is actively executing
+        if (ch_busy[i] || ch_fsm_state[i] != 4'h0) begin
+          r_ch_ctrl[i][CCTRL_START_BIT] <= 1'b0;
+        end
       end
 
       // Update interrupt status from channel hardware

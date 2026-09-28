@@ -258,7 +258,6 @@ module dma_channel
         end
 
         CH_STATE_FETCH_REQ: begin
-          $display("[DEBUG CH%0d] FETCH_REQ: curr_desc_addr=0x%08x ch_araddr=0x%08x", CHANNEL_ID, curr_desc_addr, ch_araddr);
           if (arb_granted && (arb_grant_type == 2'b00)) begin
             state_next = CH_STATE_FETCH_WAIT;
           end
@@ -266,10 +265,8 @@ module dma_channel
 
         CH_STATE_FETCH_WAIT: begin
           if (desc_error || bus_err) begin
-            $display("[DEBUG CH%0d] Entered ERROR: desc_error=%0b bus_err=%0b", CHANNEL_ID, desc_error, bus_err);
             state_next = CH_STATE_ERROR;
           end else if (desc_engine_done && desc_valid) begin
-            $display("[DEBUG CH%0d] Desc parsed: src=0x%08x dst=0x%08x len=%0d", CHANNEL_ID, desc_src_addr, desc_dst_addr, desc_transfer_len);
             state_next = CH_STATE_PARSE_DESC;
           end
         end
@@ -357,7 +354,7 @@ module dma_channel
         end
 
         CH_STATE_DONE: begin
-          if (!ch_en || ch_start) begin
+          if (!ch_en || (ch_start && ch_en)) begin
             state_next = CH_STATE_IDLE;
           end
         end
