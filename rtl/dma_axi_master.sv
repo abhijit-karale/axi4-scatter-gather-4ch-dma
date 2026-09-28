@@ -220,6 +220,13 @@ module dma_axi_master
     endcase
   end
 
+  always_ff @(posedge clk) begin
+    if (state != state_next) begin
+      $display("[%0t] [MST_FSM] %s -> %s, ch=%0d, type=%b, len=%0d, addr=%08x",
+               $time, state.name(), state_next.name(), curr_ch, curr_type, target_len, target_addr);
+    end
+  end
+
   // Sequential Logic & Counter Updates
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
